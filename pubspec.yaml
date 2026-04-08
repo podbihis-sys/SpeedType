@@ -62,13 +62,4 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/texts/en.json
-    - assets/texts/de.json
-    - assets/texts/es.json
-    - assets/texts/fr.json
-    - assets/texts/pt.json
-    - assets/texts/daily_en.json
-    - assets/texts/daily_de.json
-    - assets/texts/daily_es.json
-    - assets/texts/daily_fr.json
-    - assets/texts/daily_pt.json
+    - assets/texts/
