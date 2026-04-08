@@ -1,0 +1,7 @@
+{
+  "challenges": [
+    {"text": "O sucesso não é final, o fracasso não é fatal. É a coragem de continuar que conta.", "difficulty": "easy"},
+    {"text": "A única maneira de fazer um ótimo trabalho é amar o que você faz. Se ainda não encontrou, continue procurando.", "difficulty": "medium"},
+    {"text": "A inovação distingue entre um líder e um seguidor. Fique com fome, fique louco e nunca pare de aprender.", "difficulty": "hard"}
+  ]
+}

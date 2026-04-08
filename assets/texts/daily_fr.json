@@ -1,0 +1,7 @@
+{
+  "challenges": [
+    {"text": "Le succès n'est pas final, l'échec n'est pas fatal. C'est le courage de continuer qui compte.", "difficulty": "easy"},
+    {"text": "La seule façon de faire du bon travail est d'aimer ce que l'on fait. Si vous ne l'avez pas encore trouvé, continuez à chercher.", "difficulty": "medium"},
+    {"text": "L'innovation fait la différence entre un leader et un suiveur. Restez affamé, restez fou et n'arrêtez jamais d'apprendre.", "difficulty": "hard"}
+  ]
+}

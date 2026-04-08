@@ -1,0 +1,7 @@
+{
+  "challenges": [
+    {"text": "El éxito no es definitivo, el fracaso no es fatal. Es el coraje de continuar lo que cuenta.", "difficulty": "easy"},
+    {"text": "La única forma de hacer un gran trabajo es amar lo que haces. Si aún no lo has encontrado, sigue buscando.", "difficulty": "medium"},
+    {"text": "La innovación distingue entre un líder y un seguidor. Mantente hambriento, mantente alocado y nunca dejes de aprender.", "difficulty": "hard"}
+  ]
+}
