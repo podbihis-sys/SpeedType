@@ -1,0 +1,7 @@
+{
+  "challenges": [
+    {"text": "Success is not final, failure is not fatal. It is the courage to continue that counts.", "difficulty": "easy"},
+    {"text": "The only way to do great work is to love what you do. If you haven't found it yet, keep looking.", "difficulty": "medium"},
+    {"text": "Innovation distinguishes between a leader and a follower. Stay hungry, stay foolish, and never stop learning.", "difficulty": "hard"}
+  ]
+}
