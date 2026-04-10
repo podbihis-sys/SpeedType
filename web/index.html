@@ -3,33 +3,36 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="theme-color" content="#0B1120" />
-
 <title>SpeedType – Mobile Typing Speed Test App | WPM Test</title>
-<meta name="description" content="Test your typing speed on mobile with SpeedType. Free WPM test app featuring 5 languages, 5 difficulty levels, daily challenges and a global leaderboard. Train, compete and type faster today." />
-<meta name="keywords" content="typing test, typing speed, wpm test, type faster, keyboard speed, typing game, speed typing, touch typing, typing practice, daily typing challenge, mobile typing test" />
+<meta name="description" content="Test your typing speed on mobile with SpeedType. Measure WPM, take daily challenges, climb the global leaderboard, and train in 5 languages. Free on iOS and Android." />
+<meta name="keywords" content="typing test, typing speed, wpm test, type faster, keyboard speed, typing game, speed typing, touch typing, typing practice, daily typing challenge, mobile typing" />
 <meta name="author" content="SpeedType" />
+<meta name="robots" content="index, follow" />
 <link rel="canonical" href="https://speedtype.app/" />
 
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://speedtype.app/" />
 <meta property="og:title" content="SpeedType – Mobile Typing Speed Test App | WPM Test" />
-<meta property="og:description" content="Test your typing speed on mobile. 5 languages, 5 difficulty levels, daily challenges, and a global leaderboard. Free to play." />
+<meta property="og:description" content="Join millions testing their typing speed with SpeedType. Free WPM test, daily challenges, global leaderboard." />
 <meta property="og:image" content="https://speedtype.app/assets/og-image.png" />
 <meta property="og:site_name" content="SpeedType" />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content="https://speedtype.app/" />
 <meta name="twitter:title" content="SpeedType – Mobile Typing Speed Test App | WPM Test" />
-<meta name="twitter:description" content="How fast can you type on mobile? Join millions testing their typing speed with SpeedType." />
-<meta name="twitter:image" content="https://speedtype.app/assets/twitter-card.png" />
-<meta name="twitter:site" content="@speedtypeapp" />
+<meta name="twitter:description" content="Test your typing speed on mobile. Free, 5 languages, daily challenges." />
+<meta name="twitter:image" content="https://speedtype.app/assets/og-image.png" />
 
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<!-- Theme -->
+<meta name="theme-color" content="#0B1120" />
+<link rel="icon" type="image/png" href="/favicon.png" />
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <!-- Structured Data -->
 <script type="application/ld+json">
@@ -39,434 +42,266 @@
   "name": "SpeedType",
   "operatingSystem": "iOS, Android",
   "applicationCategory": "GameApplication",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "ratingCount": "2500" }
+  "description": "Test your typing speed on mobile. WPM tests, daily challenges, global leaderboard, 5 languages.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "ratingCount": "1200"
+  }
 }
 </script>
 
 <style>
-  :root {
-    --bg: #0B1120;
-    --bg-elev: #111a2e;
-    --bg-card: #162037;
-    --primary: #38BDF8;
-    --primary-hover: #0EA5E9;
-    --text: #E2E8F0;
-    --text-muted: #94A3B8;
-    --border: #1E293B;
-    --radius: 16px;
-    --max-width: 1200px;
-  }
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-
   body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: var(--bg);
-    color: var(--text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0B1120;
+    color: #E2E8F0;
     line-height: 1.6;
+    font-size: 16px;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
-
-  a { color: var(--primary); text-decoration: none; transition: color .2s ease; }
-  a:hover { color: var(--primary-hover); }
-
+  a { color: #38BDF8; text-decoration: none; transition: opacity 0.2s; }
+  a:hover { opacity: 0.8; }
   img { max-width: 100%; display: block; }
-
-  .container {
-    width: 100%;
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 20px;
-  }
+  h1, h2, h3, h4 { font-weight: 800; line-height: 1.2; color: #F8FAFC; }
+  h1 { font-size: clamp(2rem, 7vw, 4.5rem); letter-spacing: -0.02em; }
+  h2 { font-size: clamp(1.75rem, 5vw, 2.75rem); letter-spacing: -0.01em; margin-bottom: 1rem; }
+  h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+  p { color: #94A3B8; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 1.25rem; }
 
   /* NAV */
   header.nav {
-    position: sticky;
-    top: 0;
-    z-index: 50;
+    position: sticky; top: 0; z-index: 100;
     background: rgba(11, 17, 32, 0.85);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid rgba(56, 189, 248, 0.1);
   }
   .nav-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px 20px;
-    max-width: var(--max-width);
-    margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 1.25rem; max-width: 1200px; margin: 0 auto;
   }
-  .logo {
-    font-weight: 800;
-    font-size: 1.25rem;
-    color: var(--text);
-    letter-spacing: -0.02em;
-  }
-  .logo span { color: var(--primary); }
-  .nav-links { display: none; gap: 28px; }
-  .nav-links a { color: var(--text-muted); font-weight: 500; font-size: .95rem; }
-  .nav-links a:hover { color: var(--text); }
+  .logo { font-weight: 800; font-size: 1.25rem; color: #F8FAFC; }
+  .logo span { color: #38BDF8; }
+  .nav-links { display: none; gap: 2rem; }
+  .nav-links a { color: #94A3B8; font-weight: 500; font-size: 0.95rem; }
+  .nav-links a:hover { color: #38BDF8; }
+  @media (min-width: 768px) { .nav-links { display: flex; } }
 
   /* HERO */
   .hero {
-    padding: 60px 0 80px;
-    background: radial-gradient(circle at 20% 0%, rgba(56,189,248,0.15), transparent 60%),
-                radial-gradient(circle at 80% 20%, rgba(56,189,248,0.08), transparent 50%);
-  }
-  .hero-grid {
-    display: grid;
-    gap: 48px;
-    align-items: center;
-    grid-template-columns: 1fr;
-  }
-  .hero h1 {
-    font-size: clamp(2rem, 7vw, 3.75rem);
-    font-weight: 800;
-    line-height: 1.1;
-    letter-spacing: -0.03em;
-    margin-bottom: 20px;
-  }
-  .hero h1 span {
-    background: linear-gradient(135deg, var(--primary), #818cf8);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-  .hero p.subline {
-    font-size: clamp(1rem, 2.5vw, 1.25rem);
-    color: var(--text-muted);
-    margin-bottom: 32px;
-    max-width: 560px;
-  }
-  .badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-  .badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    padding: 12px 22px;
-    border-radius: 12px;
-    font-weight: 600;
-    color: var(--text);
-    transition: transform .2s ease, border-color .2s ease;
-    min-height: 54px;
-  }
-  .badge:hover {
-    transform: translateY(-2px);
-    border-color: var(--primary);
-  }
-  .badge small { display: block; font-size: .7rem; color: var(--text-muted); font-weight: 400; }
-  .badge strong { font-size: 1rem; }
-
-  .phone-mock {
-    width: 100%;
-    max-width: 320px;
-    margin: 0 auto;
-    aspect-ratio: 9 / 19;
-    background: linear-gradient(160deg, #1e293b, #0f172a);
-    border-radius: 36px;
-    border: 4px solid #0f172a;
-    box-shadow: 0 40px 80px -20px rgba(56,189,248,0.25),
-                0 0 0 1px rgba(56,189,248,0.1);
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-muted);
-    font-size: .85rem;
-  }
-  .phone-mock::before {
-    content: '';
-    position: absolute;
-    top: 12px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px;
-    height: 22px;
-    background: #000;
-    border-radius: 14px;
-  }
-  .phone-mock .mock-label {
-    padding: 0 20px;
+    padding: 3rem 0 4rem;
+    background: radial-gradient(ellipse at top, rgba(56, 189, 248, 0.12), transparent 60%);
     text-align: center;
   }
+  .hero .container { display: flex; flex-direction: column; gap: 2.5rem; align-items: center; }
+  .hero h1 { max-width: 900px; }
+  .hero .subline {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: #94A3B8;
+    max-width: 600px;
+    margin-top: 0.75rem;
+  }
+  .badges { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-top: 1.5rem; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: #1E293B;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    color: #F8FAFC;
+    padding: 0.85rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+  }
+  .badge:hover { background: #334155; border-color: #38BDF8; transform: translateY(-2px); }
+  .badge small { display: block; font-size: 0.7rem; color: #94A3B8; font-weight: 400; }
+  .badge strong { color: #F8FAFC; font-size: 1rem; }
+
+  .phone-mockup {
+    width: 280px; height: 560px;
+    background: linear-gradient(145deg, #1E293B 0%, #0F172A 100%);
+    border: 8px solid #0B1120;
+    box-shadow: 0 0 0 2px #334155, 0 40px 80px rgba(56, 189, 248, 0.15);
+    border-radius: 40px;
+    display: flex; align-items: center; justify-content: center;
+    color: #38BDF8; font-weight: 800; font-size: 3rem;
+    margin-top: 2rem;
+    position: relative;
+  }
+  .phone-mockup::before {
+    content: ""; position: absolute; top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 80px; height: 20px;
+    background: #0B1120; border-radius: 0 0 12px 12px;
+  }
+  .phone-mockup-inner { text-align: center; }
+  .phone-mockup-inner .wpm { font-size: 3.5rem; color: #38BDF8; }
+  .phone-mockup-inner .label { font-size: 0.9rem; color: #94A3B8; font-weight: 500; letter-spacing: 0.2em; }
 
   /* STATS BAR */
   .stats-bar {
-    background: var(--bg-elev);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    padding: 24px 0;
+    background: #1E293B;
+    border-top: 1px solid rgba(56, 189, 248, 0.15);
+    border-bottom: 1px solid rgba(56, 189, 248, 0.15);
+    padding: 1.5rem 0;
   }
   .stats-bar .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px 28px;
+    display: flex; flex-wrap: wrap;
+    align-items: center; justify-content: center;
+    gap: 1rem 2rem;
     text-align: center;
-    font-size: .95rem;
-    color: var(--text-muted);
-    font-weight: 500;
+    font-weight: 600;
+    color: #F8FAFC;
+    font-size: 0.95rem;
   }
-  .stats-bar span { white-space: nowrap; }
-  .stats-bar .dot { color: var(--primary); }
-
-  /* SECTIONS */
-  section { padding: 80px 0; }
-  .section-title {
-    text-align: center;
-    font-size: clamp(1.75rem, 4vw, 2.5rem);
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    margin-bottom: 16px;
-  }
-  .section-sub {
-    text-align: center;
-    color: var(--text-muted);
-    max-width: 620px;
-    margin: 0 auto 56px;
-    font-size: 1.05rem;
-  }
+  .stats-bar span { color: #38BDF8; margin: 0 0.25rem; }
 
   /* FEATURES */
+  section { padding: 4rem 0; }
+  .section-head { text-align: center; margin-bottom: 3rem; }
+  .section-head p { max-width: 600px; margin: 0.75rem auto 0; }
   .features-grid {
     display: grid;
-    gap: 24px;
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .features-grid { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
   }
   .feature-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    padding: 32px 28px;
-    border-radius: var(--radius);
-    transition: transform .2s ease, border-color .2s ease;
+    background: #1E293B;
+    border: 1px solid rgba(56, 189, 248, 0.15);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: all 0.3s;
   }
   .feature-card:hover {
+    border-color: #38BDF8;
     transform: translateY(-4px);
-    border-color: var(--primary);
+    box-shadow: 0 12px 32px rgba(56, 189, 248, 0.1);
   }
-  .feature-card .emoji {
-    font-size: 2.5rem;
-    margin-bottom: 16px;
-    display: block;
-  }
-  .feature-card h3 {
-    font-size: 1.25rem;
-    margin-bottom: 10px;
-    font-weight: 700;
-  }
-  .feature-card p {
-    color: var(--text-muted);
-    font-size: .95rem;
-  }
+  .feature-icon { font-size: 2.5rem; margin-bottom: 1rem; }
 
-  /* STEPS */
-  .steps {
-    background: var(--bg-elev);
-  }
-  .steps-grid {
+  /* HOW IT WORKS */
+  .how-grid {
     display: grid;
-    gap: 24px;
     grid-template-columns: 1fr;
+    gap: 2rem;
     counter-reset: step;
   }
-  .step {
+  @media (min-width: 768px) { .how-grid { grid-template-columns: repeat(3, 1fr); } }
+  .how-step {
     position: relative;
-    padding: 32px 28px 32px 88px;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
+    padding: 2rem 1.5rem 1.5rem;
+    background: #1E293B;
+    border-radius: 16px;
+    border: 1px solid rgba(56, 189, 248, 0.15);
   }
-  .step::before {
+  .how-step::before {
     counter-increment: step;
     content: counter(step);
     position: absolute;
-    top: 28px;
-    left: 24px;
-    width: 48px;
-    height: 48px;
-    background: var(--primary);
-    color: var(--bg);
+    top: -24px; left: 24px;
+    width: 48px; height: 48px;
+    background: #38BDF8;
+    color: #0B1120;
     border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
     font-weight: 800;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
+    box-shadow: 0 6px 20px rgba(56, 189, 248, 0.3);
   }
-  .step h3 { font-size: 1.2rem; margin-bottom: 8px; font-weight: 700; }
-  .step p { color: var(--text-muted); font-size: .95rem; }
 
   /* SCREENSHOTS */
   .screenshots {
-    overflow: hidden;
-  }
-  .screenshots-scroll {
-    display: flex;
-    gap: 20px;
     overflow-x: auto;
-    padding: 8px 20px 24px;
-    scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
-    scrollbar-color: var(--primary) var(--bg-elev);
+    padding-bottom: 1rem;
+    scroll-snap-type: x mandatory;
   }
-  .screenshots-scroll::-webkit-scrollbar { height: 8px; }
-  .screenshots-scroll::-webkit-scrollbar-track { background: var(--bg-elev); }
-  .screenshots-scroll::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 8px; }
+  .screenshots-track {
+    display: flex;
+    gap: 1.25rem;
+    padding: 0 1.25rem;
+    min-width: max-content;
+  }
   .screenshot {
-    flex: 0 0 auto;
-    width: 220px;
-    aspect-ratio: 9 / 19;
-    background: linear-gradient(170deg, var(--bg-card), var(--bg-elev));
-    border: 1px solid var(--border);
+    flex: 0 0 240px;
+    height: 480px;
+    background: linear-gradient(145deg, #1E293B, #0F172A);
+    border: 2px solid #334155;
     border-radius: 24px;
     scroll-snap-align: center;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    padding: 16px;
-    color: var(--text-muted);
-    font-size: .8rem;
-    font-weight: 500;
+    display: flex; align-items: center; justify-content: center;
+    color: #38BDF8;
+    font-weight: 700;
+    font-size: 1rem;
+    text-align: center;
   }
 
   /* FAQ */
-  .faq-list {
-    max-width: 780px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+  .faq-list { max-width: 760px; margin: 0 auto; }
+  .faq-item {
+    background: #1E293B;
+    border: 1px solid rgba(56, 189, 248, 0.15);
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    padding: 0;
+    overflow: hidden;
   }
-  details.faq-item {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 20px 24px;
-    transition: border-color .2s ease;
-  }
-  details.faq-item[open] { border-color: var(--primary); }
-  details.faq-item summary {
+  .faq-item summary {
+    padding: 1.25rem 1.5rem;
     cursor: pointer;
     font-weight: 600;
-    font-size: 1.05rem;
+    color: #F8FAFC;
     list-style: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 1.05rem;
   }
-  details.faq-item summary::-webkit-details-marker { display: none; }
-  details.faq-item summary::after {
-    content: '+';
-    color: var(--primary);
-    font-size: 1.5rem;
-    font-weight: 400;
-    transition: transform .2s ease;
-  }
-  details.faq-item[open] summary::after {
-    content: '−';
-  }
-  details.faq-item p {
-    margin-top: 14px;
-    color: var(--text-muted);
-    font-size: .95rem;
-    line-height: 1.7;
-  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after { content: "+"; color: #38BDF8; font-size: 1.5rem; font-weight: 400; }
+  .faq-item[open] summary::after { content: "−"; }
+  .faq-item .faq-body { padding: 0 1.5rem 1.5rem; color: #94A3B8; }
 
   /* CTA */
-  .cta-section {
-    text-align: center;
-    background: linear-gradient(180deg, var(--bg), var(--bg-elev));
-  }
-  .cta-section .container {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+  .cta {
+    background: linear-gradient(145deg, rgba(56, 189, 248, 0.12), rgba(56, 189, 248, 0.03));
+    border: 1px solid rgba(56, 189, 248, 0.3);
     border-radius: 24px;
-    padding: 56px 24px;
+    text-align: center;
+    padding: 3rem 1.5rem;
+    margin: 0 1.25rem;
   }
-  .cta-section h2 {
-    font-size: clamp(1.75rem, 4vw, 2.25rem);
-    margin-bottom: 12px;
-    letter-spacing: -0.02em;
-  }
-  .cta-section p {
-    color: var(--text-muted);
-    margin-bottom: 32px;
-    font-size: 1.05rem;
-  }
-  .cta-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 16px;
-  }
+  .cta h2 { margin-bottom: 0.75rem; }
 
   /* FOOTER */
   footer {
-    background: var(--bg-elev);
-    border-top: 1px solid var(--border);
-    padding: 48px 0 32px;
-  }
-  .footer-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    align-items: center;
+    border-top: 1px solid rgba(56, 189, 248, 0.1);
+    padding: 2.5rem 0;
+    margin-top: 4rem;
     text-align: center;
   }
-  .footer-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px 28px;
-    justify-content: center;
+  footer .links {
+    display: flex; flex-wrap: wrap; gap: 1.5rem;
+    justify-content: center; margin-bottom: 1rem;
   }
-  .footer-links a {
-    color: var(--text-muted);
-    font-size: .9rem;
-    font-weight: 500;
-  }
-  .footer-links a:hover { color: var(--primary); }
-  .footer-copy {
-    color: var(--text-muted);
-    font-size: .85rem;
-    padding-top: 16px;
-    border-top: 1px solid var(--border);
-    width: 100%;
-  }
-
-  /* MEDIA QUERIES - mobile-first */
-  @media (min-width: 640px) {
-    .features-grid { grid-template-columns: repeat(2, 1fr); }
-    .steps-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (min-width: 900px) {
-    .nav-links { display: flex; }
-    .hero { padding: 90px 0 110px; }
-    .hero-grid { grid-template-columns: 1.1fr 1fr; gap: 60px; }
-    .features-grid { grid-template-columns: repeat(3, 1fr); }
-    .steps-grid { grid-template-columns: repeat(3, 1fr); }
-    .footer-grid { flex-direction: row; justify-content: space-between; text-align: left; }
-    .footer-copy { border-top: none; padding-top: 0; width: auto; }
-  }
+  footer .copy { color: #64748B; font-size: 0.875rem; }
 </style>
 </head>
 <body>
 
 <header class="nav">
   <div class="nav-inner">
-    <a href="/" class="logo">Speed<span>Type</span></a>
+    <div class="logo">Speed<span>Type</span></div>
     <nav class="nav-links">
       <a href="#features">Features</a>
       <a href="#how">How It Works</a>
@@ -476,26 +311,27 @@
   </div>
 </header>
 
+<main>
+
 <!-- HERO -->
 <section class="hero">
   <div class="container">
-    <div class="hero-grid">
-      <div>
-        <h1>How Fast Can You <span>Type on Mobile?</span></h1>
-        <p class="subline">Join millions testing their typing speed with SpeedType. Free, multilingual, and built for thumbs.</p>
-        <div class="badges">
-          <a href="#" class="badge" aria-label="Download on the App Store">
-            <span style="font-size:1.6rem;">🍎</span>
-            <span><small>Download on the</small><strong>App Store</strong></span>
-          </a>
-          <a href="#" class="badge" aria-label="Get it on Google Play">
-            <span style="font-size:1.6rem;">▶</span>
-            <span><small>Get it on</small><strong>Google Play</strong></span>
-          </a>
-        </div>
-      </div>
-      <div class="phone-mock" aria-hidden="true">
-        <div class="mock-label">[ Phone Mockup<br>Screenshot Placeholder ]</div>
+    <h1>How Fast Can You Type on Mobile?</h1>
+    <p class="subline">Join millions testing their typing speed with SpeedType</p>
+    <div class="badges">
+      <a href="#" class="badge" aria-label="Download on the App Store">
+        <span style="font-size:1.6rem">🍎</span>
+        <span><small>Download on the</small><strong>App Store</strong></span>
+      </a>
+      <a href="#" class="badge" aria-label="Get it on Google Play">
+        <span style="font-size:1.6rem">▶</span>
+        <span><small>GET IT ON</small><strong>Google Play</strong></span>
+      </a>
+    </div>
+    <div class="phone-mockup" aria-hidden="true">
+      <div class="phone-mockup-inner">
+        <div class="wpm">87</div>
+        <div class="label">WPM</div>
       </div>
     </div>
   </div>
@@ -504,137 +340,131 @@
 <!-- STATS BAR -->
 <div class="stats-bar">
   <div class="container">
-    <span>5 Languages</span>
-    <span class="dot">·</span>
-    <span>5 Difficulty Levels</span>
-    <span class="dot">·</span>
-    <span>Daily Challenges</span>
-    <span class="dot">·</span>
-    <span>Global Leaderboard</span>
+    5 Languages <span>·</span> 5 Difficulty Levels <span>·</span> Daily Challenges <span>·</span> Global Leaderboard
   </div>
 </div>
 
 <!-- FEATURES -->
 <section id="features">
   <div class="container">
-    <h2 class="section-title">Everything You Need to Type Faster</h2>
-    <p class="section-sub">Simple to start, deep enough to master. SpeedType adapts to how you practice.</p>
+    <div class="section-head">
+      <h2>Built for Mobile Typists</h2>
+      <p>Everything you need to measure, improve, and show off your thumbs.</p>
+    </div>
     <div class="features-grid">
       <div class="feature-card">
-        <span class="emoji">⌨️</span>
+        <div class="feature-icon">⌨️</div>
         <h3>Test Your Speed</h3>
-        <p>Measure your WPM and accuracy with scientifically calibrated tests. Choose from 5 difficulty levels, from beginner to legendary.</p>
+        <p>Accurate WPM measurement across five difficulty levels. Get instant feedback on speed and accuracy after every run.</p>
       </div>
       <div class="feature-card">
-        <span class="emoji">🔥</span>
+        <div class="feature-icon">🔥</div>
         <h3>Daily Challenges</h3>
-        <p>A fresh challenge every day with a global leaderboard. Keep your streak alive and climb the rankings against players worldwide.</p>
+        <p>A fresh challenge every day with a global leaderboard. Build a streak and compete against typists worldwide.</p>
       </div>
       <div class="feature-card">
-        <span class="emoji">📈</span>
+        <div class="feature-icon">📈</div>
         <h3>Track Progress</h3>
-        <p>Beautiful charts show your WPM growth, accuracy trends, and personal records over time. Watch yourself get faster.</p>
+        <p>Beautiful charts show your WPM and accuracy over time. Watch your thumbs get faster week after week.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="steps" id="how">
+<section id="how">
   <div class="container">
-    <h2 class="section-title">How It Works</h2>
-    <p class="section-sub">Go from first tap to personal best in under a minute.</p>
-    <div class="steps-grid">
-      <div class="step">
-        <h3>Download & Open</h3>
-        <p>Install SpeedType from the App Store or Google Play. No sign-up required to start practicing.</p>
+    <div class="section-head">
+      <h2>How It Works</h2>
+      <p>Start measuring your typing speed in under 30 seconds.</p>
+    </div>
+    <div class="how-grid">
+      <div class="how-step">
+        <h3>Pick a Language</h3>
+        <p>Choose from English, German, Spanish, French, or Portuguese and select your preferred difficulty.</p>
       </div>
-      <div class="step">
-        <h3>Pick Your Test</h3>
-        <p>Select a language, difficulty and test length. Or jump straight into today's Daily Challenge.</p>
+      <div class="how-step">
+        <h3>Type the Text</h3>
+        <p>Type as fast and accurately as you can. SpeedType tracks WPM, raw speed, and accuracy in real time.</p>
       </div>
-      <div class="step">
-        <h3>Type & Improve</h3>
-        <p>Get instant WPM and accuracy results, then track your progress over time and climb the leaderboard.</p>
+      <div class="how-step">
+        <h3>Climb the Leaderboard</h3>
+        <p>Submit your score to the daily leaderboard and watch your progress chart grow each week.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- SCREENSHOTS -->
-<section class="screenshots">
-  <h2 class="section-title">See It in Action</h2>
-  <p class="section-sub">A quick look at the SpeedType experience.</p>
-  <div class="screenshots-scroll">
-    <div class="screenshot">Home Screen</div>
-    <div class="screenshot">Typing Test</div>
-    <div class="screenshot">Results & WPM</div>
-    <div class="screenshot">Daily Challenge</div>
-    <div class="screenshot">Leaderboard</div>
-    <div class="screenshot">Progress Chart</div>
+<section>
+  <div class="container">
+    <div class="section-head">
+      <h2>Screenshots</h2>
+      <p>A peek at SpeedType on iOS and Android.</p>
+    </div>
+  </div>
+  <div class="screenshots">
+    <div class="screenshots-track">
+      <div class="screenshot">Home<br/>Screen</div>
+      <div class="screenshot">Test in<br/>Progress</div>
+      <div class="screenshot">Results<br/>Screen</div>
+      <div class="screenshot">Daily<br/>Challenge</div>
+      <div class="screenshot">Global<br/>Leaderboard</div>
+      <div class="screenshot">Progress<br/>Charts</div>
+    </div>
   </div>
 </section>
 
 <!-- FAQ -->
 <section id="faq">
   <div class="container">
-    <h2 class="section-title">Frequently Asked Questions</h2>
-    <p class="section-sub">Everything you wanted to know about SpeedType.</p>
+    <div class="section-head">
+      <h2>Frequently Asked Questions</h2>
+    </div>
     <div class="faq-list">
       <details class="faq-item">
         <summary>What is a good WPM on mobile?</summary>
-        <p>On mobile, most people type between 25 and 40 WPM with two thumbs. Anything above 50 WPM is considered fast, and 70+ WPM puts you in the top 1% of mobile typists. SpeedType helps you benchmark and improve from wherever you start.</p>
+        <div class="faq-body">Most mobile typists land between 30 and 45 WPM. Anything above 60 WPM on a phone is excellent. SpeedType's leaderboard shows the current top scores globally in each language and difficulty level.</div>
       </details>
       <details class="faq-item">
         <summary>Is SpeedType free?</summary>
-        <p>Yes. SpeedType is free to download and play, with unlimited tests, daily challenges, and leaderboard access. We offer an optional ad-free subscription for users who prefer a cleaner experience, but every core feature is available for free.</p>
+        <div class="faq-body">Yes. SpeedType is free to download and play on iOS and Android. The core typing tests, daily challenge, and leaderboard are completely free. An optional Pro subscription removes ads and unlocks advanced analytics.</div>
       </details>
       <details class="faq-item">
         <summary>Which languages are supported?</summary>
-        <p>SpeedType currently supports English, German, Spanish, French, and Portuguese. Each language uses native word lists and typing conventions so your results reflect real-world speed.</p>
+        <div class="faq-body">SpeedType currently supports five languages: English, German, Spanish, French, and Portuguese. Each language has five difficulty levels and a separate leaderboard.</div>
       </details>
       <details class="faq-item">
         <summary>How does the Daily Challenge work?</summary>
-        <p>Every day at midnight (your local time), a fresh challenge unlocks with the same text for all players. You get one attempt per day, and your result is added to the global leaderboard. Maintain your streak to earn bonuses and climb the rankings.</p>
+        <div class="faq-body">Every day at 00:00 UTC a new challenge text is published. All players worldwide type the same text, and the global leaderboard resets daily. Build a streak by completing the challenge every day.</div>
       </details>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section class="cta-section" id="download">
-  <div class="container">
-    <h2>Ready to Find Out Your WPM?</h2>
-    <p>Download SpeedType today and start your first test in under 30 seconds.</p>
-    <div class="cta-buttons">
-      <a href="#" class="badge">
-        <span style="font-size:1.6rem;">🍎</span>
-        <span><small>Download on the</small><strong>App Store</strong></span>
-      </a>
-      <a href="#" class="badge">
-        <span style="font-size:1.6rem;">▶</span>
-        <span><small>Get it on</small><strong>Google Play</strong></span>
-      </a>
+<section id="download">
+  <div class="cta">
+    <h2>Ready to Find Your Real WPM?</h2>
+    <p>Download SpeedType for free and start typing today.</p>
+    <div class="badges">
+      <a href="#" class="badge"><span style="font-size:1.6rem">🍎</span><span><small>Download on the</small><strong>App Store</strong></span></a>
+      <a href="#" class="badge"><span style="font-size:1.6rem">▶</span><span><small>GET IT ON</small><strong>Google Play</strong></span></a>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+</main>
+
 <footer>
   <div class="container">
-    <div class="footer-grid">
-      <div>
-        <div class="logo" style="margin-bottom:8px;">Speed<span>Type</span></div>
-        <p style="color:var(--text-muted); font-size:.85rem;">Mobile typing, measured.</p>
-      </div>
-      <nav class="footer-links">
-        <a href="/privacy.html">Privacy Policy</a>
-        <a href="/terms.html">Terms of Service</a>
-        <a href="/app-ads.txt">app-ads.txt</a>
-        <a href="mailto:hello@speedtype.app">Contact</a>
-      </nav>
+    <div class="links">
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Service</a>
+      <a href="/app-ads.txt">app-ads.txt</a>
+      <a href="mailto:hello@speedtype.app">Contact</a>
     </div>
-    <p class="footer-copy" style="margin-top:32px; text-align:center;">© 2026 SpeedType. All rights reserved.</p>
+    <p class="copy">&copy; 2026 SpeedType. All rights reserved.</p>
   </div>
 </footer>
 
