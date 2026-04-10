@@ -45,3 +45,7 @@ app.*.map.json
 # Firebase
 google-services.json
 GoogleService-Info.plist
+
+# Python cache (for ui-ux-pro-max skill)
+__pycache__/
+*.pyc
