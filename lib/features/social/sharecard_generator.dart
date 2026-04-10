@@ -62,7 +62,6 @@ class ScorecardGenerator {
       ),
       pixelRatio: 1.0,
       delay: const Duration(milliseconds: 20),
-      context: null,
       targetSize: const Size(1080, 1920),
     );
 
