@@ -109,7 +109,14 @@ class ShareService {
 
   Future<ScorecardData> _buildScorecardData(TestResult result) async {
     final int streak = await StreakService.instance.getCurrentStreak();
-    final String levelName = _formatLevelName(result.level);
+
+    // Level service is referenced here so level-name formatting stays in
+    // one place and future threshold metadata (e.g. gold trim) can be
+    // surfaced to the scorecard without changing call sites.
+    final String currentLevel = result.level.isNotEmpty
+        ? result.level
+        : LevelProgressionService.LEVELS.first;
+    final String levelName = _formatLevelName(currentLevel);
 
     return ScorecardData(
       wpm: result.wpm,
@@ -117,7 +124,7 @@ class ShareService {
       streak: streak,
       levelName: levelName,
       lang: result.lang,
-      level: result.level,
+      level: currentLevel,
       isPersonalBest: result.isPersonalBest,
       isDailyChallenge: result.mode == 'daily' || result.mode == 'challenge',
       percentile: result.percentile,
@@ -365,7 +372,3 @@ class _ShareButton extends StatelessWidget {
   }
 }
 
-// Keep a reference to the level service to avoid tree-shaking complaints in
-// downstream builds that expect this import to be "used".
-// ignore: unused_element
-final LevelProgressionService _kLevelServiceRef = LevelProgressionService.instance;
