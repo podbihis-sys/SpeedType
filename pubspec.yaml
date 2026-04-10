@@ -45,7 +45,6 @@ dependencies:
 
   # Sharing & Social
   share_plus: ^10.0.2
-  appinio_social_share: ^2.4.0
   screenshot: ^3.0.0
   path_provider: ^2.1.4
 
