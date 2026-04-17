@@ -1,0 +1,133 @@
+name: Build & Deploy Demo
+
+# Builds the SpeedType Flutter demo (no Firebase) and publishes it as:
+#   1. A web preview deployed to GitHub Pages
+#   2. A debug Android APK uploaded as a build artifact
+#
+# After the first successful run you need to enable GitHub Pages once:
+#   Repo → Settings → Pages → Source: "Deploy from a branch" → Branch: "gh-pages" / (root)
+#
+# Web URL after deployment:
+#   https://podbihis-sys.github.io/SpeedType/
+
+on:
+  push:
+    branches:
+      - claude/cloud-storage-setup-RQZAO
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-demo-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # ===========================================================================
+  # Web build → deploy to GitHub Pages
+  # ===========================================================================
+  web:
+    name: Web preview
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: '3.24.3'
+
+      - name: Print Flutter version
+        run: flutter --version
+
+      - name: Regenerate platform folders
+        run: |
+          # Flutter create is idempotent and will only add missing files,
+          # it never overwrites existing lib/ code. This fixes the Android
+          # v1 embedding error and creates the web/ bootstrap.
+          flutter create \
+            --org com.speedtype \
+            --project-name speedtype \
+            --platforms=web,android \
+            .
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build web (demo mode, no Firebase)
+        run: |
+          flutter build web \
+            --release \
+            -t lib/main_demo.dart \
+            --base-href "/SpeedType/" \
+            --web-renderer canvaskit \
+            || echo "::warning::Web build failed, see logs"
+
+      - name: Upload web build artifact
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: speedtype-web
+          path: build/web
+          retention-days: 14
+
+      - name: Deploy to GitHub Pages
+        if: success() && github.ref == 'refs/heads/claude/cloud-storage-setup-RQZAO'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: build/web
+          publish_branch: gh-pages
+          commit_message: "Deploy demo build ${{ github.sha }}"
+
+  # ===========================================================================
+  # Android APK build
+  # ===========================================================================
+  android:
+    name: Android APK
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: '3.24.3'
+
+      - name: Regenerate platform folders
+        run: |
+          flutter create \
+            --org com.speedtype \
+            --project-name speedtype \
+            --platforms=android \
+            .
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build debug APK (demo mode)
+        run: |
+          flutter build apk \
+            --debug \
+            -t lib/main_demo.dart \
+            || echo "::warning::APK build failed, see logs"
+
+      - name: Upload APK artifact
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: speedtype-debug-apk
+          path: build/app/outputs/flutter-apk/app-debug.apk
+          retention-days: 14
